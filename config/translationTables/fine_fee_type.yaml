@@ -7,28 +7,41 @@
 ## it defines mappings from voyager.fine_fee.fine_fee_type to koha.accountlines.accounttype
 ##
 
+# JYU source values
 
-#voyager.FINE_FEE_TYPE.csv
-#FINE_FEE_TYPE,               FINE_FEE_DESC, FINE_FEE_CODE
-#   mapping
-1:  O                        #"Overdue","F1"
-2:  L                        #"Lost Item Replacement", "F2"
-3:  L                        #"Lost Item Processing", "F3"
-4:  F                        #"Media Booking Late Charge","F4"
-5:  Rent                     #"Media Booking Usage Fee","F5"
-6:  Rep                      #"Equipment Replacement","F6"
-7:  L                        #"Lost Equipment Processing","F7"
-8:  FU                       #"Accrued Fine","F8"
-9:  FU                       #"Accrued Demerit","F9"
-10: F                        #"Demerit","F10"
-11: F                        #"Myohastymismaksu","RenameF8"
-13: Kauko                    #"Kaukolaina","RenameF10"
-12: N                        #"Kirjastokortti","RenameF9"
-14: M                        #"K�sittelymaksu","F11"
-15: ODUEC                    #"Laskutettu","F12"
-16: HE                       #"Noutamaton varaus","F13"
-17: HE                       #"Noutamaton kaukolaina","F14"
-18: F                        #"Lyhytlaina -1. pv (5 eur)","F15"
-19: F                        #"Lyhytlaina -muut (1 eur)","F16"
+# fine_fee_type,fine_fee_desc
+# 1,Overdue
+# 2,Lost Item Replacement
+# 3,Lost Item Processing
+# 4,Media Booking Late Charge
+# 5,Media Booking Usage Fee
+# 6,Equipment Replacement
+# 7,Lost Equipment Processing
+# 11,*Saap.ilm.maksu
+# 12,*Osoitetiedustelumaksu
+# 13,*Lukusalilaina myöh.maksu
+# 14,*Kaukol.karh.postitus
+# 15,*Ei lunastettu kaukolaina
+# 16,*Kaukopalv.lainakielto
+# 17,*Poistettu nide
+# 18,*Luvaton ain. säil.paik.
+# 19,*Laskun käsittelymaksu
+# 8,Accrued Fine
+# 9,Accrued Demerit
+# 10,Demerit
+# 20,*Vapaakpl kotilainassa
+# 21,*Kirja haettu hyllystä
+# 22,Testing
+# 23,*Kirjan korjausmaksu
+
 
 # For values in Koha, see. https://wiki.koha-community.org/wiki/Hard_Coded_Values
+
+1:  O # Overdue
+3:  L # Lost item processing
+8:  FU # Accured fine
+16: F # Kaukopalvelun lainauskielto
+17: F # Poistettu nide
+19: F # Lasun käsittelymaksu
+21: M # Kirja haettu hyllystä
+

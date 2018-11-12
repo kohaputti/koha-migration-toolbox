@@ -7,20 +7,34 @@
 ## it defines mappings from voyager.patron_group.patron_group_id to koha.borrowers.categorycode
 ##
 
-#HAMK source values
-#PATRON_GROUP_ID,PATRON_GROUP_CODE,PATRON_GROUP_NAME
-#"1","B","HAMK Opiskelijat"
-#"2","A","HAMK/HAMI Henkil<F6>kunta"
-#"3","BB","HAMI Opiskelijat"
-#"4","K","Muut","Muut"
-#"5","I","Kaukopalvelu"
-#"6","WD","Withdrawn"
+#JYU source values
+# patron_group_id,patron_group_name
+# 1,Muut asiakkaat
+# 2,Muut opiskelijat
+# 3,JY:n tilap. henkilökunta
+# 4,JY:n opiskelijat
+# 5,JY:n henkilökunta
+# 6,Kirjastot
+# 7,Ammattikorkeakoulu
+# 8,Julkishallinto
+# 9,Testiryhmä - henkilökunta
+# 10,KTL:n henkilökunta
+# 11,JY:n jatko-opiskelijat
+# 13,Lukivaikeudet/opiskelijat
+# 12,Testiryhmä - opiskelijat
 
-1        : B
-2        : A
-3        : BB
-4        : K
-5        : I
-6        : WD
-UNKNOWN  : $DELETE             #Patrons with group id of UNKNOWN, will be removed from the migration. UNKNOWN is given when no Patron has no patron_group_id
-_DEFAULT_: warning()           #Default value to use, if nothing matches. if this field is omitted, MMT simply warns and ignores the value.
+1        : OTHER
+2        : OTHER
+3        : STAFF
+4        : STUDENT
+5        : STAFF
+6        : LIBRARY
+7        : OTHER
+8        : OTHER
+9        : $DELETE
+10       : STAFF
+11       : STUDENT
+12       : $DELETE
+13       : STUDENT2
+UNKNOWN  : $DELETE         # Patrons with group id of UNKNOWN, will be removed from the migration. UNKNOWN is given when no Patron has no patron_group_id
+_DEFAULT_: warning()       # Default value to use, if nothing matches. if this field is omitted, MMT simply warns and ignores the value.

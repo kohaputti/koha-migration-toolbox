@@ -9,12 +9,45 @@
 
 #voyager.ITEM_TYPE
 #ITEM_TYPE_ID       ,ITEM_TYPE_CODE, ITEM_TYPE_NAME, ITEM_TYPE_DISPLAY
-1: ARKISTO        # "ARKISTO0",      "ARKISTO0",     "ARKISTO0"
-2: LAINA28        # "LAINA28",       "LAINA28",      "LAINA28"
-3: LAINA0         # "LAINA0",        "LAINA0",       "LAINA0"
-4: LAINAV         # "LAINAV",        "VIRKALAINA",   "VIRKALAINA"
-5: LAINA14        # "LAINA14",       "LAINA14",      "LAINA14"
-
-# If you have mappings such as these, one should carefully consider to instead use item type as a
-# description of the Item's external appearance. Koha has many levels to organize and categorize items
-# and their respective circulation rules
+13: LAINA0
+87: GRADUL
+57: VARASTO28L 
+23: LAINA28 
+82: LAINA14 
+22: LAINA0 
+8: VARASTO180 
+7: VARASTO28 
+4: LAINA14 
+84: LAINA1 
+3: LAINA0 
+6: VARASTO28L 
+10: TABLETIT14 
+2: LAINA28 
+5: VARASTO28 
+86: SP 
+33: LAINA28 
+32: LAINA0 
+54: LAINA0
+65: LAINA0 
+48: LAINA0
+36: LAINA0
+37: LAINA28
+77: VARASTO180
+19: KONVERSIO # frankofonia suppressoidut
+20: LAINA0 # liikunnan oppimiskeskus gradu
+24: LAINA0 # matematiikan käsikirjasto gradu
+35: LAINA28 # ylistönrinne 28vrk opinnäyte
+42: LAINA0 # kartta
+44: LAINA28 # tkl laina-aika 28vrk
+45: LAINA0 # hisoria kanavuori ei käytössä
+49: LAINA0 # musica ei kotilainattava
+50: LAINA28 # musica laina-aika 28vrk
+53: LAINA0 # taidehistorian gradu toistaiseksi ei käytössä
+58: LAINA0 # oppio ei kotilainattava
+63: LAINA0 # kokkola ei kotilainattava
+64: LAINA14 # kokkola 14 vrk lainattava
+66: LAINA0 # ruusupuisto ktl ei kotilainattava
+73: LAINA0 # rehtori-instituutin opinnäytteet
+75: LAINA14 # kokkola kurssikirja 14 vrk
+76: LAINA0 # hungarologia odottaa siirtokäsittelyä
+77: LAINA0 # tietotekniikan gradut laitoksella

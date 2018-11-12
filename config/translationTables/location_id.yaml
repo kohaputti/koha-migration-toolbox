@@ -6,254 +6,492 @@
 ## This mapping table is used by the module MMT::TranslationTable::LocationId
 ## it defines mappings from voyager.location_id column to Koha's shelving_location and branchcode
 ##
+## JYU source values
 
-##
-## ref(101) - Refer another value instead.
-##
-## Used to alias various values to make accessing this table with different values from different data sources.
-## Mainly the MARC-records refer using string-key, and other parts refer with the id.
+# location_id,location_code,location_name
+# 2,100,Pääkirjasto
+# 3,101,P Yleiskok Laina 3.krs
+# 4,102,P Yleiskok LsKirja 3.krs
+# 5,103,P Bibliografiat. 3.krs
+# 6,104,P Lehdet 3.krs
+# 7,105,Ei käytössä 44
+# 8,106,P Yleiskok Laina 2.krs
+# 9,107,P Yleiskok LsKirja 2.krs
+# 10,108,P Bibliografiat 2.krs
+# 11,109,P Lehdet 2.krs
+# 12,110,P Mikromuoto 3.krs
+# 13,111,P Lainattava kurssikirja
+# 14,112,P Mikrofilmilehdet
+# 15,113,P Kaunok. 2.krs
+# 16,114,P Vapaakappale Xa tabloid
+# 17,115,P Lyhytlainakurssikirjat
+# 222,116,P KäsikKurssik
+# 18,117,P Yleiskok Varastokirjat
+# 20,118,P Kaunok Varastokirjat
+# 21,119,P Yleiskok Varastolehdet
+# 22,120,P Pihkalan kokoelma
+# 146,121,0121Testi
+# 24,121,P Vapaakappalekokoelma
+# 25,122,P Fennica piennumerus
+# 26,123,P Kaukolainat
+# 27,124,P EU-kokoelma. 3.krs
+# 28,125,P EU-kokoelma. Varasto
+# 29,126,P LsEU-kokoelma. 3.krs
+# 30,127,P Multimedia. 1.krs
+# 19,128,P Yleiskok. Käsik. var
+# 23,129,P Mikromuoto var
+# 31,130,P LsMultimedia 1.krs
+# 32,190,Internet-yhteys
+# 33,191,Ebook Central
+# 218,192,Ellibs
+# 266,193,JY:n digitoidut aineistot
+# 34,300,Tietokannat
+# 35,301,P Sanomalehdet Kanavuori
+# 37,302,Ei käytössä 37
+# 200,303,P Lehdet Tupa
+# 36,350,P Tilatut kotim sanomaleh
+# 38,351,VARH lehdet
+# 39,401,Ei käytössä 17
+# 40,402,Ei käytössä 18
+# 41,403,Ei käytössä 19
+# 172,404,Ei käytössä 20
+# 42,405,Frankofonia. Kanavuori
+# 173,406,SOLKI Lehdet
+# 171,407,OKL
+# 233,450,Ruotsin kieli Lehdet
+# 43,500,Ei käytössä 3
+# 44,501,Ei käytössä 4
+# 244,504,Liikunnan gradut 2010-
+# 45,550,Liikuntabiologia Lehdet
+# 46,551,LLS LB Lehdet
+# 47,552,LLS LK Lehdet
+# 48,553,LLS LS Lehdet
+# 49,554,LLS TT Lehdet
+# 50,600,MK LsKirja
+# 51,601,MK Lainattavat
+# 57,605,MK MAT
+# 60,606,MK TIE
+# 63,607,MK TIL
+# 65,608,MAT G
+# 66,609,Kanavuoren gradut
+# 67,610,Ei käytössä 66
+# 68,611,Ei käytössä 67
+# 69,612,Ei käytössä 68
+# 70,613,Ei käytössä 69
+# 194,614,Tietotekn. gradut
+# 71,615,MK TIE Gradu
+# 59,616,MK TIE Ls
+# 62,617,MK TIL Ls
+# 177,618,Ei käytössä 41
+# 178,619,TIE Multimedia
+# 197,620,Ei käytössä 45
+# 229,621,MK Kansalaisyhteiskunta
+# 234,640,YFI Lehdet laitoksella
+# 52,650,MK Yhteiset lehdet
+# 53,651,MK FIL Lehdet
+# 54,652,MK SOS Lehdet
+# 55,653,MK VAL Lehdet
+# 56,654,MK YFI Lehdet
+# 58,655,MK MAT Lehdet
+# 61,656,MK TIE Lehdet
+# 64,657,MK TIL Lehdet
+# 72,658,ATK-keskus Lehdet
+# 73,659,MK TIT Lehdet
+# 205,660,Agora Center
+# 74,700,AVO Lehdet
+# 79,701,Psyk gradut 2014-
+# 80,702,Ei käytössä 8
+# 76,711,Ei käytössä 9
+# 77,712,Ei käytössä 10
+# 221,720,Ei käytössä 12
+# 82,721,Ei käytössä 13
+# 83,722,Ei käytössä 14
+# 75,750,TOU Yhteiset lehdet
+# 78,752,TOU TÄY Lehdet
+# 81,753,TOU VIE Lehdet
+# 84,754,TOU AVO Lehdet
+# 85,800,YK LsKirja
+# 87,810,YK KEM LsKirja
+# 88,811,YK KEM Lainattavat
+# 89,812,YK Gradut
+# 91,820,YK FYS LsKirja
+# 92,821,YK FYS Lainattavat
+# 93,822,Ei käytössä 42
+# 241,830,YK Uusiutuva energia
+# 86,850,YK Yhteiset lehdet
+# 90,851,YK KEM Lehdet
+# 94,852,YK FYS Lehdet
+# 95,900,Ambiotica BIO LsKirja
+# 96,901,YK BIO Lainattavat
+# 213,902,Ambiotica BIO Lainattavat
+# 214,903,YK BIO LsKirja
+# 97,951,BIO Ekol. lehdet
+# 98,952,BIO Bio-ja ymp. lehdet
+# 99,953,BIO SB lehdet
+# 100,954,BIO Ymp.tiet.lehdet
+# 232,955,Nanoscience Lehdet
+# 191,1000,Ei käytössä 32
+# 195,1001,Loppuunmyyty
+# 212,1002,P Separatus
+# 207,1003,P Separatus LYH
+# 209,1004,Projektihylly
+# 187,1010,Er.ped. gradut
+# 216,1020,P Varhaiskirjallisuus
+# 101,1050,Erit.pedagogiikka. Lehdet
+# 238,1090,P Ulk varastosanomalehdet
+# 102,1100,KTL Kirjat
+# 260,1110,e-kurssik
+# 103,1200,P Fennica kuunnelmat
+# 104,1201,P Fredriksonin kartat
+# 211,1210,P Fennica numerus 2010-
+# 215,1211,P Varhaisfennica Arkholvi
+# 251,1212,P Arkkiveisut
+# 261,1213,P Arkistoholvi 
+# 262,1214,P Komiteanmietinnöt 
+# 263,1215,P Fennica Mikrokortit
+# 265,1216,P Aikakauslehdet Kanavuor
+# 267,1217,Ei käytössä 33
+# 268,1218,Ei käytössä 34
+# 259,1219,Digitoidut aineistot
+# 269,1220,P Fennica lehdet 2017-
+# 237,1230,P Kaukol mikrokorttigradu
+# 105,1250,Etnologia. Lehdet
+# 196,1300,Rehtori-instituutti Gradu
+# 106,1400,Ei käytössä 24
+# 253,1401,TAIH Gradu
+# 108,1404,Historia. Fredrikson
+# 107,1450,Historia. Lehdet
+# 109,1500,Kasvatustiet. lts Kirjat
+# 110,1550,Kasvatustiet.lts Lehdet
+# 111,1600,Ei käytössä 25
+# 168,1601,KTL LsKirjat
+# 112,1650,KTL Lehdet
+# 113,1800,Ei käytössä 38
+# 115,1810,Nykykultt. Kirjat
+# 199,1820,Hungarologia Gradut
+# 236,1830,Kirjallisuus. Gradut
+# 114,1850,Kirjallisuus.Lehdet
+# 116,1851,Nykykultt. Lehdet
+# 117,1900,Konnevesi. Kirjat
+# 118,1950,Konnevesi. Lehdet
+# 119,2100,VESILINNA. Kirjat
+# 120,2150,VESILINNA. Lehdet
+# 121,2200,Musiikin lts. LsKirja
+# 122,2201,Musiikin lts. Laina
+# 201,2202,Musiikin lts. LsMusa
+# 202,2203,Musiikin lts. LsNuotit
+# 203,2204,Musiikin lts. Nuotit
+# 225,2205,Musiikin lts. LsPartituur
+# 226,2206,Musiikin lts. LainaPartit
+# 227,2207,Musiikin lts. Orkesteri
+# 228,2208,Musiikin lts. LsOppikirja
+# 123,2250,Musiikin lts. Lehdet
+# 124,2300,Kielikeskus Lehdet
+# 125,2350,Psykologian lts. Lehdet
+# 126,2400,Ei käytössä 26
+# 206,2401,Suomen kieli. Virk
+# 127,2450,Suomen kieli. Lehdet
+# 128,2500,Taidehist/Taidek. Kirjat
+# 130,2501,Museologia. Kirjat
+# 208,2502,Digitaalinen kulttuuri
+# 129,2550,Taidehistoria. Lehdet
+# 131,2551,Museologia. Lehdet
+# 132,2600,Ei käytössä 39
+# 210,2601,Taidekasvatus. Gradut
+# 133,2650,Taidekasvatus. Lehdet
+# 134,2700,Ei käytössä 40
+# 135,2750,Taloustiet. tdk. Lehdet
+# 136,2800,Ei käytössä 28
+# 190,2810,Venäjän kieli
+# 137,2900,Yliopiston kielik. Kirjat
+# 138,3000,Ei käytössä 30
+# 139,3050,Ei käytössä 1
+# 176,3500,Kuvakoulutus. Kirjat
+# 180,4011,Ei käytössä 31
+# 181,4021,Saksan kieli
+# 182,4031,Ruotsin kieli
+# 183,4041,Rom. ja klass. kielet
+# 186,4061,Sov.kielentutk. gradut
+# 239,5000,P Esinelainat
+# 264,5001,P Tabletit
+# 140,5200,P Kurssikirja
+# 141,5556,Testikokoelma1
+# 142,5557,Testikokoelma2
+# 193,5558,Testikokoelma3
+# 143,6000,Chydenius-Inst. LsKirja
+# 144,6001,Chydenius-Inst. Laina
+# 198,6002,Chydenius-Inst. Kurssik
+# 220,6003,Chydenius-Inst. Tritonia
+# 223,6050,Chydenius-Inst. Lehdet
+# 145,7000,Kultt.hist. museo. Kirjat
+# 219,8000,Poistettu kokoelmista
+# 270,9995,Gradulokerohuone 302
+# 255,9996,Säilytyspaikkahuone 204
+# 256,9997,Säilytyspaikkahuone 202
+# 257,9998,Säilytyspaikkahuone 303
+# 254,9999,Säilytyspaikkahuone 302
+# 147,0121b,0121bTesti
+# 152,Blain,Biologia. Lainaus
+# 155,Clain,Chydenius.Lainaus.Kokkola
+# 188,EI_LINDA,zEI_LINDA
+# 150,JYKluettel,JYKluettelointi
+# 159,JYKoletus,JYK (muut kokoelmat)
+# 162,Kausihank,Kausijhank(ei käyt)
+# 166,ksto_kausi,*Kirjasto/Kausijulkaisut
+# 156,KTLlain,KTL. Lainaus
+# 164,Kurssihank,Kurssikirjahankinta
+# 165,Laitkausij,*Laitosten kausijulkaisut
+# 189,Laitoshank,Laitoshankinnat
+# 169,Lhank,*Liikunnan kirjasto
+# 235,LIIKKA,XLiikunta. Lainaus Itsep.
+# 153,Llaina,Liikunta. Lainaus
+# 240,MATTILA,XMattilanniemi. Itsepalv
+# 170,Mhank,*Mattilanniemen kirjasto
+# 154,Mlain,Mattilanniemi. Lainaus
+# 231,MUSA,Musiikin lts. Itsepalvelu
+# 230,MUSlain,Musiikin laitos. Lainaus
+# 163,Palvhank,Palvelukirjastohankinta
+# 149,Phankinta,Kausijulkaisuhankinnat
+# 167,PKhankinta,PKhankintatoimisto
+# 151,Plainaus,.Pääkirjasto. Lainaus
+# 1,REVIEW,REVIEW
+# 160,SELF,Pääkirjasto. Itsepalvelu
+# 175,Thank,*Tourulan kirjasto
+# 157,TOUlain,Tourula. Lainaus
+# 242,TOURU,XTourula. Lainaus Itsep.
+# 174,Yhank,*Ylistönrinteen kirjasto
+# 158,Ylain,Ylistönrinteen. Lainaus
+# 252,YLISTO,XYlistö. Lainaus Itsep.
+# 192,Ztestilain,Ztestilain
+
+#29a-locations.csv
+#location_id,location_code,location_name
+
+## sub branchLo($s, $kohaObject, $voyagerObject, $builder, $originalValue, $tableParams, $transParams) {
+##   return {
+##     branch => uc($tableParams->[0]),
+##     location => uc($tableParams->[1]),
+##     collectionCode => $tableParams->[2],
+##     sub_location => $tableParams->[3],
+##     itemtype => $tableParams->[4],
+##     notforloan => $tableParams->[5],
+##   };
+## }
 
 #Voyager.LOCATION -table
 #location_id,location_code,       #location_name
 
 #branchLoc sets the following attributes:
 #       branchcode, shelving_location, collection_code, sub_location, item.itemtype, item.notforloan-status
-1: branchLoc(HAMKO, EI_KOHAAN) #Hamkoark, Evo Arkisto
-+Hamkoark: ref(1)
-2: branchLoc(HAMKO, LAI) #Hamkokir, Evo Kirjasto lainakokoelma
-+Hamkokir: ref(2)
-3: branchLoc(HAMKO, VAR) #Hamkovar, Evo Varasto,
-+Hamkovar: ref(3)
-4: branchLoc(HAMKO, LEH) #Hamkoleh, Evo Lehdet,
-+Hamkoleh: ref(4)
-5: branchLoc(HAMKO, EI_KOHAAN) #Hamkoopi, Evo Opinn?ytteet,
-+Hamkoopi: ref(5)
-6: branchLoc(HAMKF, EI_KOHAAN) #Hamkfark, Forssa Arkisto,
-+Hamkfark: ref(6)
-7: branchLoc(HAMKF, LAI) #Hamkfkir, Forssa Kirjasto lainakokoelma
-+Hamkfkir: ref(7)
-8: branchLoc(HAMKF, EI_KOHAAN) #Hamkfref, Forssa K?sikirjasto
-+Hamkfref: ref(8)
-9: branchLoc(HAMKF, LEH) #Hamkfleh, Forssa Lehdet,
-+Hamkfleh: ref(9)
-10: branchLoc(HAMKF, EI_KOHAAN) #Hamkfopi, Forssa Opinn?ytteet,
-+Hamkfopi: ref(10)
-11: branchLoc(HAMKF, EI_KOHAAN) #Hamkfstan, Forssa Standardit,
-+Hamkfstan: ref(11)
-12: branchLoc(HAMKA, LAI) #Hamkavana, Visam?ki Kirjasto,
-+Hamkavana: ref(12)
-13: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkaahve,zz?L? K?YT?
-+Hamkaahve: ref(13)
-14: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkaaula, zzEI K?YT?SS?,
-+Hamkaaula: ref(14)
-15: branchLoc(HAMKA, LEH) #Hamkaleh, Visam?ki Lehdet,
-+Hamkaleh: ref(15)
-16: branchLoc(HAMKA, EI_KOHAAN) #Hamkakir, zzPOIS K?YT?ST?,
-+Hamkakir: ref(16)
-17: branchLoc(HAMKH, VAR) #Hamkaref, Visam?ki K?sikirjasto,#uusi kirjasto KOHAssa Henkilökunnan kokoelma, Hamkh, hyllypaikka varasto
-+Hamkaref: ref(17)
-18: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkasal, Visam?ki Salainen,
-+Hamkasal: ref(18)
-19: branchLoc(HAMKA, SAIREF) #Hamkasai, Sairio K?sikirjasto,
-+Hamkasai: ref(19)
-20: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkaopi, Visam?ki Opinn?ytteet,
-+Hamkaopi: ref(20)
-21: branchLoc(HAMKA, STAN) #Hamkastan, Visam?ki Standardit,
-+Hamkastan: ref(21)
-22: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkavar, Visam?ki Varasto,
-+Hamkavar: ref(22)
-23: branchLoc(HAMKL, LAI) #Hamklkir, Lepaa Kirjasto,
-+Hamklkir: ref(23)
-24: branchLoc(HAMKL, REF) #Hamklref, Lepaa K?sikirjasto,
-+Hamklref: ref(24)
-25: branchLoc(HAMKL, LEH) #Hamklleh, Lepaa Lehdet,
-+Hamklleh: ref(25)
-26: branchLoc(HAMKL, EI_KOHAAN) #Hamklopi, Lepaa Opinn?ytteet,
-+Hamklopi: ref(26)
-27: branchLoc(HAMKL, VAR) #Hamklvar, Lepaa Varasto,
-+Hamklvar: ref(27)
-28: branchLoc(HAMKL, EI_KOHAAN) #Hamklstan, Lepaa Standardit,
-+Hamklstan: ref(28)
-29: branchLoc(HAMKL, MUS, LIN) #Hamklmhl, LepaaMuseo Hertta Linkola,#Kirjasto Lepaa, hyllypaikka_loc museo ja Ccode Hertta Linkolan kokoelma
-+Hamklmhl: ref(29)
-30: branchLoc(HAMKL, MUS) #Hamklmmus, LepaaMuseo Museokokoelma, #Kirjasto Lepaa, Hyllypaikka useo
-+Hamklmmus: ref(30)
-31: branchLoc(HAMKM, ARK) #Hamkmark, Mustiala Arkisto,
-+Hamkmark: ref(31)
-32: branchLoc(HAMKM, LAI) #Hamkmkir, Mustiala Kirjasto,
-+Hamkmkir: ref(32)
-33: branchLoc(HAMKM, VAR) #Hamkmvar, Mustiala Varasto,
-+Hamkmvar: ref(33)
-34: branchLoc(HAMKM, EI_KOHAAN) #Hamkmref, Mustiala K?sikirjasto,
-+Hamkmref: ref(34)
-35: branchLoc(HAMKM, LEH) #Hamkmleh, Mustiala Lehdet,
-+Hamkmleh: ref(35)
-36: branchLoc(HAMKM, EI_KOHAAN) #Hamkmopi, Mustiala Opinn?ytteet,
-+Hamkmopi: ref(36)
-37: branchLoc(HAMKR, REF) #Hamkrref, Riihim?ki K?sikirjasto,
-+Hamkrref: ref(37)
-38: branchLoc(HAMKR, LAI) #Hamkrkir, Riihim?ki Kirjasto,
-+Hamkrkir: ref(38)
-39: branchLoc(HAMKR, EI_KOHAAN) #Hamkrvar, Riihim?ki Varasto,
-+Hamkrvar: ref(39)
-40: branchLoc(HAMKR, EI_KOHAAN) #Hamkrark, Riihim?ki Arkisto,
-+Hamkrark: ref(40)
-41: branchLoc(HAMKR, LEH) #Hamkrleh, Riihim?ki Lehdet,
-+Hamkrleh: ref(41)
-42: branchLoc(HAMKR, EI_KOHAAN,,) #Hamkropi, Riihim?ki Opinn?ytteet,
-+Hamkropi: ref(42)
-43: branchLoc(HAMKR, STAN) #Hamkrstan, Riihim?ki Standardit,
-+Hamkrstan: ref(43)
-44: branchLoc(HAMKR, EI_KOHAAN) #Hamkritse, XXRiihim?ki Itseopiskelu,
-+Hamkritse: ref(44)
-45: branchLoc(HAMKV, LAI) #Hamkvkir, Valkeakoski Kirjasto,
-+Hamkvkir: ref(45)
-46: branchLoc(HAMKV, REF) #Hamkvref, Valkeakoski K?sikirjasto,
-+Hamkvref: ref(46)
-47: branchLoc(HAMKV, LEH) #Hamkvleh, Valkeakoski Lehdet,
-+Hamkvleh: ref(47)
-48: branchLoc(HAMKV, EI_KOHAAN) #Hamkvopi, Valkeakoski Opinn?ytteet,
-+Hamkvopi: ref(48)
-49: branchLoc(HAMKV, STAN) #Hamkvstan, Valkeakoski Standardit,
-+Hamkvstan: ref(49)
-50: branchLoc(HAMKV, EI_KOHAAN) #Hamkvark, Valkeakoski Arkisto,
-+Hamkvark: ref(50)
-51: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkwkir, zzWetterhoff Kirjasto,
-+Hamkwkir: ref(51)
-52: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkwref, zzWetterhoff K?sikirjasto,
-+Hamkwref: ref(52)
-53: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkwdia, xxWetterhoff Diat,
-+Hamkwdia: ref(53)
-54: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkwleh, zzWetterhoff Lehdet,
-+Hamkwleh: ref(54)
-55: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkwopi, zzWetterhoff Opinn?ytteet,
-+Hamkwopi: ref(55)
-56: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkwark, zzWetterhoff Arkisto,
-+Hamkwark: ref(56)
-57: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkwstan, zzWetterhoff Standardit,
-+Hamkwstan: ref(57)
-58: branchLoc(HAMKO, EI_KOHAAN) #HAMKOLAINA, EVO LAINAUS,
-+HAMKOLAINA: ref(58)
-59: branchLoc(HAMKF, EI_KOHAAN) #HAMKFLAINA, FORSSA LAINAUS,
-+HAMKFLAINA: ref(59)
-60: branchLoc(HAMKA, EI_KOHAAN) #HAMKALAINA, VISAM?KI LAINAUS,
-+HAMKALAINA: ref(60)
-61: branchLoc(HAMKL, EI_KOHAAN) #HAMKLLAINA, LEPAA LAINAUS,
-+HAMKLLAINA: ref(61)
-62: branchLoc(HAMKM, EI_KOHAAN) #HAMKMLAINA, MUSTIALA LAINAUS,
-+HAMKMLAINA: ref(62)
-63: branchLoc(HAMKR, EI_KOHAAN) #HAMKRLAINA, RIIHIM?KI LAINAUS,
-+HAMKRLAINA: ref(63)
-64: branchLoc(HAMKV, EI_KOHAAN) #HAMKVLAINA, VALKEAKOSKI LAINAUS,
-+HAMKVLAINA: ref(64)
-65: branchLoc(EI_KOHAAN, EI_KOHAAN) #HAMKWLAINA, WETTERHOFF LAINAUS,
-+HAMKWLAINA: ref(65)
-66: branchLoc(EI_KOHAAN, EI_KOHAAN) #HAMKSELF, ITSEPALVELULAINAUS,
-+HAMKSELF: ref(66)
-67: branchLoc(EI_KOHAAN, EI_KOHAAN) #HAMKALUETT, HAMK LUETTELOINTI,
-+HAMKALUETT: ref(67)
-68: branchLoc(EI_KOHAAN, EI_KOHAAN) #TOIMLUETT, TOIMIPISTE LUETTELOINTI,
-+TOIMLUETT: ref(68)
-69: branchLoc(EI_KOHAAN, EI_KOHAAN) #HAMKHANKI, HAMK HANKINTA,
-+HAMKHANKI: ref(69)
-70: branchLoc(EI_KOHAAN, EI_KOHAAN) #HAMKOPAC, OPAC,
-+HAMKOPAC: ref(70)
-71: branchLoc(HAMKO, EI_KOHAAN) #Hamkopois, Evo Poistot,
-+Hamkopois: ref(71)
-72: branchLoc(HAMKF, EI_KOHAAN) #Hamkfpois, Forssa Poistot,
-+Hamkfpois: ref(72)
-73: branchLoc(HAMKA, EI_KOHAAN) #Hamkapois, zzEI K?YTET?,
-+Hamkapois: ref(73)
-74: branchLoc(HAMKL, EI_KOHAAN) #Hamklpois, Lepaa Poistot,
-+Hamklpois: ref(74)
-75: branchLoc(HAMKM, EI_KOHAAN) #Hamkmpois, Mustiala Poistot,
-+Hamkmpois: ref(75)
-76: branchLoc(HAMKR, EI_KOHAAN) #Hamkrpois, Riihim?ki Poistot,
-+Hamkrpois: ref(76)
-77: branchLoc(HAMKV, EI_KOHAAN) #Hamkvpois, Valkeakoski Poistot,
-+Hamkvpois: ref(77)
-78: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkwpois, Wetterhoff Poistot,
-+Hamkwpois: ref(78)
-79: branchLoc(HAMKA, EI_KOHAAN) #Hamkaraksa, Lahdensivu selvitett?vi?,
-+Hamkaraksa: ref(79)
-80: branchLoc(HAMKO, EI_KOHAAN) #HAMKOSELF, EVO IP_LAINAUS,
-+HAMKOSELF: ref(80)
-81: branchLoc(HAMKF, EI_KOHAAN) #HAMKFSELF, FORSSA IP_LAINAUS,
-+HAMKFSELF: ref(81)
-82: branchLoc(HAMKL, EI_KOHAAN) #HAMKLSELF, LEPAA IP_LAINAUS,
-+HAMKLSELF: ref(82)
-83: branchLoc(HAMKM, EI_KOHAAN) #HAMKMSELF, MUSTIALA IP_LAINAUS,
-+HAMKMSELF: ref(83)
-84: branchLoc(HAMKR, EI_KOHAAN) #HAMKRSELF, RIIHIM?KI IP_LAINAUS,
-+HAMKRSELF: ref(84)
-85: branchLoc(HAMKV, EI_KOHAAN) #HAMKVSELF, VALKEAKOSKI IP_LAINAUS,
-+HAMKVSELF: ref(85)
-86: branchLoc(EI_KOHAAN, EI_KOHAAN) #HAMKWSELF, WETTERHOFF IP_LAINAUS,
-+HAMKWSELF: ref(86)
-87: branchLoc(HAMKO, REF) #Hamkoref, Evo K?sikirjasto,
-+Hamkoref: ref(87)
-88: branchLoc(HAMKH, VL) #Hamkvl, Virkak?ytt? - lainat, #uusi kirjasto KOHAssa Henkilökunnan kokoelma, Hamkh - hyllypaikka_location vl (virkalaina)
-+Hamkvl: ref(88)
-89: branchLoc(HAMKH, VS) #Hamkvs, Virkak?ytt? -sijainnit, #uusi kirjasto KOHAssa Henkilökunnan kokoelma, Hamkh ja hyllypaikka_location vs (virkasijainti)
-+Hamkvs: ref(89)
-90: branchLoc(HAMK, WWW) #Hamkwww, HAMK Verkkoaineisto,
-+Hamkwww: ref(90)
-91: branchLoc(HAMKL, EI_KOHAAN) #Hamklark, LepaaArkisto,
-+Hamklark: ref(91)
-92: branchLoc(HAMKV, EI_KOHAAN) #Hamkvkurs, Valkeakoski kurssikirjat,
-+Hamkvkurs: ref(92)
-93: branchLoc(HAMKM, EI_KOHAAN) #Hamkmkurs, Mustiala kurssiaineisto,
-+Hamkmkurs: ref(93)
-94: branchLoc(HAMKL, EI_KOHAAN) #Hamklkurs, Lepaa kurssikirjat,
-+Hamklkurs: ref(94)
-95: branchLoc(HAMKM, EI_KOHAAN) #Hamkmstan, Mustiala Standardit,
-+Hamkmstan: ref(95)
-96: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkjulrek, HAMKin julkaisurekisteri,
-+Hamkjulrek: ref(96)
-97: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkbkir, XXLahdensivu Kirjasto,
-+Hamkbkir: ref(97)
-99: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkbleh, XXLahdensivu Lehdet,
-+Hamkbleh: ref(99)
-100: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkbopi, Lahdensivu Opinn?ytteet,
-+Hamkbopi: ref(100)
-101: branchLoc(EI_KOHAAN, EI_KOHAAN) #HAMKBLAINA, XXAINOLA-SOTE,
-+HAMKBLAINA: ref(101)
-102: branchLoc(EI_KOHAAN, EI_KOHAAN) #HAMKBSELF, LAHDENSIVU IP_LAINAUS,
-+HAMKBSELF: ref(102)
-103: branchLoc(HAMKA, EI_KOHAAN) #Hamkakurs, Visam?ki kurssikirjat,
-+Hamkakurs: ref(103)
-104: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkbkurs, XXLahdensivu kurssiain,
-+Hamkbkurs: ref(104)
-105: branchLoc(HAMKR, EI_KOHAAN) #Hamkrkurs, Riihim?ki kurssikirjat,
-+Hamkrkurs: ref(105)
-106: branchLoc(HAMKA, EI_KOHAAN) #Hamkalex, Visam?ki Sanomalehdet,
-+Hamkalex: ref(106)
-107: branchLoc(EI_KOHAAN, EI_KOHAAN) #Hamkblex, Lahdensivu Sanomalehdet,
-+Hamkblex: ref(107)
-108: branchLoc(HAMKF, EI_KOHAAN) #Hamkflex, Forssa Sanomalehdet,
-+Hamkflex: ref(108)
-109: branchLoc(HAMKL, EI_KOHAAN) #Hamkllex, Lepaa Sanomalehdet,
-+Hamkllex: ref(109)
-110: branchLoc(HAMKM, EI_KOHAAN) #Hamkmlex, Mustiala Sanomalehdet,
-+Hamkmlex: ref(110)
-111: branchLoc(HAMKO, EI_KOHAAN) #Hamkolex, Evo Sanomalehdet,
-+Hamkolex: ref(111)
-112: branchLoc(HAMKR, EI_KOHAAN) #Hamkrlex, Riihim?ki Sanomalehdet,
-+Hamkrlex: ref(112)
-113: branchLoc(HAMKV, EI_KOHAAN) #Hamkvlex, Valkeakoski Sanomalehdet,
-+Hamkvlex: ref(113)
-114: branchLoc(HAMKM, MUS) #Hamkmmus, Mustiala Museokokoelma #kirjasto Mustiala, hyllypaikka museo
-+Hamkmmus: ref(114)
-115: branchLoc(HAMKV, EI_KOHAAN) #Hamkvvar, Valkeakoski Varasto,
-+Hamkvvar: ref(115)
-116: branchLoc(HAMKO, EI_KOHAAN) #Hamkoesi, Evo Esineet,
-+Hamkoesi: ref(116)
-117: branchLoc(HAMK, ARK) #Hamksark, HAMK Opinn?ytety?arkisto,
-+Hamksark: ref(117)
-118: branchLoc(HAMK, WWN) #Hamkwwwn, Tietokannat Vanaicatissa,
-+Hamkwwwn: ref(118)
-119: branchLoc(HAMKO, MUS) #Hamkomus, Evo Museo, #kirjasto Evo, hyllypaikka museo
-+Hamkomus: ref(119)
-120: branchLoc(EI_KOHAAN, EI_KOHAAN) #MAKSU, Verkkomaksaminen,
-+MAKSU: ref(120)
-_DEFAULT_: branchLoc(HAMK, KONVERSIO, ERROR, ERROR) #By default, print a warning and use defaults )
+
+
+
+2: branchLoc(main, 100) #Pääkirjasto
++100: ref(2)
+3: branchLoc(main, 101) #P Yleiskok Laina 3.krs
++101: ref(3)
+4: branchLoc(main, 102) #P Yleiskok LsKirja 3.krs
++102: ref(4)
+6: branchLoc(main, 104) #P Lehdet 3.krs
++104: ref(6)
+8: branchLoc(main, 106) #P Yleiskok Laina 2.krs
++106: ref(8)
+9: branchLoc(main, 107) #P Yleiskok LsKirja 2.krs
++107: ref(9)
+10: branchLoc(main, 108) #P Bibliografiat 2.krs
++108: ref(10)
+11: branchLoc(main, 109) #P Lehdet 2.krs
++109: ref(11)
+12: branchLoc(main, 110) #P Mikromuoto 3.krs
++110: ref(12)
+13: branchLoc(main, 111) #P Lainattava kurssikirja
++111: ref(13)
+14: branchLoc(main, 112) #P Mikrofilmilehdet
++112: ref(14)
+15: branchLoc(main, 113) #P Kaunok. 2.krs
++113: ref(15)
+16: branchLoc(main, 114) #P Vapaakappale Xa tabloid
++114: ref(16)
+17: branchLoc(main, 115) #P Lyhytlainakurssikirjat
++115: ref(17)
+18: branchLoc(main, 117) #P Yleiskok Varastokirjat
++117: ref(18)
+19: branchLoc(main, 128) #P Yleiskok. Käsik. var
++128: ref(19)
+21: branchLoc(main, 119) #P Yleiskok Varastolehdet
++119: ref(21)
+22: branchLoc(main, 120) #P Pihkalan kokoelma
++120: ref(22)
+24: branchLoc(main, 121) #P Vapaakappalekokoelma
++121: ref(24)
+25: branchLoc(main, 122) #P Fennica piennumerus
++122: ref(25)
+32: branchLoc(main, 190) #Internet-yhteys
++190: ref(32)
+33: branchLoc(main, 191) #Ebook Central
++191: ref(33)
+34: branchLoc(main, 300) #Tietokannat
++300: ref(34)
+35: branchLoc(kanavuori, 301) #P Sanomalehdet Kanavuori
++301: ref(35)
+36: branchLoc(main, 350) #P Tilatut kotim sanomaleh
++350: ref(36)
+66: branchLoc(kanavuori, 609) #Kanavuoren gradut
++609: ref(66)
+104: branchLoc(main, 1201) #P Fredriksonin kartat
++1201: ref(104)
+111: branchLoc(aalto, 1600) #Aallon lukusali
++1600: ref(111)
+119: branchLoc(museo, 2100) #VESILINNA. Kirjat
++2100: ref(119)
+130: branchLoc(museo, 2501) #Museologia. Kirjat
++2501: ref(130)
+145: branchLoc(museo, 7000) #Kultt.hist. museo. Kirjat
++7000: ref(145)
+200: branchLoc(main, 303) #P Lehdet Tupa
++303: ref(200)
+211: branchLoc(main, 1210) #P Fennica numerus 2010-
++1210: ref(211)
+215: branchLoc(main, 1211) #P Varhaisfennica Arkholvi
++1211: ref(215)
+216: branchLoc(main, 1020) #P Varhaiskirjallisuus
++1020: ref(216)
+218: branchLoc(main, 192) #Ellibs
++192: ref(218)
+222: branchLoc(main, 116) #P KäsikKurssik
++116: ref(222)
+251: branchLoc(main, 1212) #P Arkkiveisut
++1212: ref(251)
+254: branchLoc(main, 9999) #Säilytyspaikkahuone 302
++9999: ref(254)
+255: branchLoc(main, 9996) #Säilytyspaikkahuone 204
++9996: ref(255)
+256: branchLoc(main, 9997) #Säilytyspaikkahuone 202
++9997: ref(256)
+257: branchLoc(main, 9998) #Säilytyspaikkahuone 303
++9998: ref(257)
+259: branchLoc(main, 1219) #Digitoidut aineistot
++1219: ref(259)
+260: branchLoc(main, 1110) #e-kurssik
++1110: ref(260)
+261: branchLoc(main, 1213) #P Arkistoholvi
++1213: ref(261)
+262: branchLoc(aalto, 1214) #P Komiteanmietinnöt
++1214: ref(262)
+263: branchLoc(main, 1215) #P Fennica Mikrokortit
++1215: ref(263)
+264: branchLoc(main, 5001) #P Tabletit
++5001: ref(264)
+265: branchLoc(kanavuori, 1216) #P Aikakauslehdet Kanavuor
++1216: ref(265)
+266: branchLoc(main, 193) #JY:n digitoidut aineistot
++193: ref(266)
+269: branchLoc(main, 1220) #P Fennica lehdet 2017-
++1220: ref(269)
+270: branchLoc(main, 9995) #Gradulokerohuone 302
++9995: ref(270)
+27: branchLoc(main, 124) # EU-kokoelma
++124: ref(27)
+65: branchLoc(EI_KOHAAN, EI_KOHAAN) # 608 MAT G
+608: ref(65)
+29: branchLoc(EI_KOHAAN, EI_KOHAAN) # 126 P LS-EU-kokoelma
++126: ref(29)
+28: branchLoc(EI_KOHAAN, EI_KOHAAN) # 125 EU-kokoelma. Varasto
++125: ref(28)
+267: branchLoc(EI_KOHAAN, EI_KOHAAN) # 1217 Ei käytössä
++1217: ref(267)
+102: branchLoc(EI_KOHAAN, EI_KOHAAN) # 1100 KTL Kirjat
++1100: ref(102)
+168: branchLoc(EI_KOHAAN, EI_KOHAAN) # KTL LsKirjat
++1601: ref(168)
+26: branchLoc(EI_KOHAAN, EI_KOHAAN) # P Kaukolainat
++123: ref(26)
+144: branchLoc(chydenius, 6001) # Chydenius-Inst. Laina
++6001: ref(144)
+143: branchLoc(chydenius, 6000) # Chydenius-Inst LsKirja
++6000: ref(143)
+198: branchLoc(chydenius, 6002) # Chydenius-Inst. Kurssik
++6002: ref(198)
+137: branchLoc(main, 2900) # Yliopiston kielikeskus, kirjat
++2900: ref(137)
+121: branchLoc(main, 2200) # Musiikin lts. LsKirja
++2200: ref(121)
+201: branchLoc(main, 2202) # Musiikin lts. LsMusiikki
++2202: ref(201)
+225: branchLoc(main, 2205) # Musiikin lts. LsPartituuri
++2205: ref(225)
+122: branchLoc(main, 2201) # Musiikin lts. Lainattava
++2201: ref(122)
+202: branchLoc(main, 2203) # Musiikin lts. LsNuotit
++2203: ref(202)
+226: branchLoc(main, 2206) # Musiikin lts. LainaPartituurit
++2206: ref(226)
+228: branchLoc(main, 2208) # Musiikin lts. LsOppikirja
++2208: ref(228)
+203: branchLoc(main, 2204) # Musiikin lts. Nuotit
++2204: ref(203)
+51: branchLoc(mattila, 601) # 601 MK Lainattavat
++601: ref(51)
+57: branchLoc(mattila, 601) # 605 MK MAT
++605: ref(57)
+60: branchLoc(mattila, 601) # 606 MK TIE
++606: ref(60)
+63: branchLoc(mattila, 601) # 607 MK TIL
++607: ref(63)
+229: branchLoc(mattila, 601) # 621 MK Kansalaisyhteiskunta
++621: ref(229)
+50: branchLoc(mattila, 600) # MK Ls Kirja
++600: ref(50)
+59: branchLoc(mattila, 600) # # MK Tie LS
++616: ref(59)
+62: branchLoc(mattila, 600) # MK TIL Ls
++617: ref(62)
+92: branchLoc(ylisto, 821) # YK FYS Lainattavat
++821: ref(92)
+96: branchLoc(ylisto, 821) # YK BIO Lainattavat
++901: ref(96)
+88: branchLoc(ylisto, 821) # YK KEM Lainattavat
++811: ref(88)
+241: branchLoc(ylisto, 821) # YK Uusiutuva energia
++830: ref(241)
+85: branchLoc(ylisto, 800) # YK LS Kirja
++800: ref(85)
+87: branchLoc(ylisto, 800) # YK KEM LsKirja
++810: ref(87)
+91: branchLoc(ylisto, 800) # YK FYS LsKirja
++820: ref(91)
+214: branchLoc(ylisto, 903) # YK BIO LsKirja
++903: ref(214)
+193: branchLoc(main, 5558, KONVERSIO) # Testikokoelma3
++5558: ref(193)
+108: branchLoc(main, 1404, KONVERSIO) # Historia Fredrikson
++1404: ref(108)
+42: branchLoc(main, 405, KONVERSIO) # Frankofonia Kanavuori
++405: ref(42)
+199: branchLoc(kanavuori, 1820, KONVERSIO) # Hungarologia gradut
++1820: ref(42)
+253: branchLoc(kanavuori, 1401, KONVERSIO) # TAIH Gradu
++1401: ref(253)
+90: branchLoc(main, 851, KONVERSIO) # YK KEM Lehdet
++851: ref(90)
+124: branchLoc(main, 2300, KONVERSIO) # Kielikeskus lehdet
++2300: ref(124)
+213: branchLoc(main, 902, KONVERSIO) # Ambiotica BIO Lainattavat
++902: ref(213)
+219: branchLoc(main, 8000, KONVERSIO) # Poistettu kokoelmista
++8000: ref(219)
+23: branchLoc(main, 129, KONVERSIO) # P Mikromuoto var
++129: ref(23)
+71: branchLoc(kanavuori, 615, KONVERSIO) # MK TIE Gradu
++615: ref(71)
+194: branchLoc(kanavuori, 614, KONVERSIO) # Tietotekn gradut
++614: ref(194)
+244: branchLoc(kanavuori, 504, KONVERSIO) # Liikunnan gradut 2010-
++504: ref(244)
+236: branchLoc(kanavuori, 1830, KONVERSIO) # Kirjallisuus gradut
++1830: ref(236)
+89: branchLoc(kanavuori, 812, KONVERSIO) # YK Gradut
++812: ref(89)
+196: branchLoc(kanavuori, 1300, KONVERSIO) # Rehtori-insituutti gradut
++1300: ref(196)
+_DEFAULT_: branchLoc(main, KONVERSIO) #By default, print a warning and use defaults )

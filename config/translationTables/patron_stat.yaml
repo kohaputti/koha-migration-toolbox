@@ -6,22 +6,69 @@
 ## This mapping table is used by the module MMT::TranslationTable::PatronStatistics
 ## it defines mappings from voyager.patron_stat_id -column to Koha's ExtendedPatronAttributes-feature repeatable attribute 'statistic'
 ##
+## JYU stat groups
+
+# patron_stat_id,patron_stat_desc
+# 29,Muut yliopistot.Hlökunta
+# 30,Muut yliopistot.Opisk.
+# 31,Ulkom.kirjastot
+# 32,Elinkeinoelämä
+# 7,Muut asiakkaat
+# 8,Muut opiskelijat
+# 9,Avoin yo.Hlökunta
+# 10,X_YTDK.Opiskelijat
+# 11,MTDK.Opiskelijat
+# 12,X_HTDK.Opiskelijat
+# 13,LTDK.Opiskelijat
+# 14,X_HTDK.Hlökunta
+# 15,X_KTDK opiskelijat
+# 16,Avoin yo opiskelijat
+# 17,Kauppakorkea.Opiskelijat
+# 18,MTDK.Hlökunta
+# 19,ITDK.Opiskelijat
+# 20,ITDK.Hlökunta
+# 21,Kotim. kirjastot
+# 22,Erillislaitokset.Hlökunta
+# 23,Ammattikorkeakoulut
+# 24,X_KTDK.Hlökunta
+# 25,X_YTDK.Hlökunta
+# 26,LTDK.Hlökunta
+# 27,Kauppakorkea.Hlökunta
+# 28,Julk.hallinto
+# 33,HytkY.Opiskelijat
+# 34,HytkY.Hlökunta
+# 35,EduPsy.Opiskelijat
+# 36,EduPsy.Hlökunta
 
 
-
-#Asiakkaiden tilastoryhmissä (STAT_CAT Statistinen ryhmittely) pitäisi käyttää auktorisoituja arvoja. Lisäsin tilastoryhmät Auktorisoiduiksi arvoiksi nimeltä PATRON_STAT_GROUPS
-
-#Mapataan patron_stat_coden mukaan PATRON_STAT_GROUPS arvoihin:
-#PATRON_STAT_ID,PATRON_STAT_CODE,PATRON_STAT_DESC
-1:  D   # HAMK opiskelija
-2:  M   # Toisen asteen opiskelija
-3:  A   # Oman amk:n henkil?kunta
-4:  G   # Ulkopuol. AMK opiskelija
-5:  F   # Ulkopuol. AMK henkil?kunt
-6:  K   # Yo Opisk./Henkil?kunta
-7:  P   # Muu oppilaitos
-8:  S   # Julkishallinnon edustaja
-9:  R   # Elinkeinoel?m?n edustaja
-10: "N" # Kotimainen kaukopalveluas (N might get confused with NULL, yamllint suggests using "N")
-11: O   # Ulkomainen kaukopalveluas
-12: U   # Muu asiakas
+#patron_stat_id,patron_stat_desc
+29:    I:Muiden yliopistojen henkilökunta
+30:    J:Muiden yliopistojen opiskelijat
+31:    O:Ulkomaiset kirjastot
+32:    R:Elinkeinoelämä
+7:     U:Muut asiakkaat
+8:     J:Muiden yliopistojen opiskelijat
+9:     BT:Avoimen yliopiston henkilökunta
+10:    EH:HYTKY opiskelijat
+11:    EM:MTDK opiskelijat
+12:    EH:HYTKY opiskelijat
+13:    EL:LTDK opiskelijat
+14:    BH:HYTKY henkilökunta
+15:    ES:EDUPSY opiskelijat
+16:    ET:Avoimen yliopiston opiskelijat
+17:    EJ:JSBN opiskelijat
+18:    BM:MTDK henkilökunta
+19:    EI:ITDK opiskelijat
+20:    BI:ITDK henkilökunta
+21:    N:Kotimaiset kirjastot
+22:    BE:Erillislaitosten henkilökunta
+23:    G:Ammattikorkeakoulut
+24:    BS:EDUPSY henkilökunta
+25:    BH:HYTKY henkilökunta
+26:    BL:LTDK henkilökunta
+27:    BJ:JSBE henkilökunta
+28:    S:Julkishallinto
+33:    EH:HYTKY opiskelijat
+34:    BH:HYTKY henkilökunta
+35:    ES:EDUPSY opiskelijat
+36:    BS:EDUPSY henkilökunta

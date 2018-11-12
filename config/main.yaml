@@ -24,7 +24,7 @@ voyagerExportDir: ''
 ## Exported DB rows are mangled into Koha-objects
 
 # Enable multithreading by defining workers.
-workers: 0
+workers: 3
 
 # Holdings transformation strategy to use.
 # The way holdings records are used in various databases vary, hence one transformation set of rules wont work for all source databases.
@@ -35,7 +35,7 @@ defaultReplacementPrice: 25
 
 # ISIL-code for the migrated organization
 # Used primarily in the MARC record transformations.
-organizationISILCode: FI-Hamk
+organizationISILCode: FI-J
 
 # Set the Patron home library to this value for all patrons. Leave empty to use the LocationId-translation table.
 patronHomeLibrary:

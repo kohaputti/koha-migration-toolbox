@@ -42,7 +42,7 @@ patronHomeLibrary:
 
 # Which strategy to use to validate phone numbers
 # See MMT::Validator::Phone for available strategies
-phoneNumberValidationStrategy: HAMK
+phoneNumberValidationStrategy: JYU
 
 #############################
 ### 3) Data loading phase ###

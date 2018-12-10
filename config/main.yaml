@@ -14,10 +14,10 @@
 
 # Absolute/full path to the script used to extract data from the VoyagerDB-server into the Koha-server.
 # See the extractor-dir for example implementations.
-exportPipelineScript: ''
+exportPipelineScript: '/home/koha/MMT-Voyager/secret/voyagerToTransformer_fetchDataViaSSHJumpHost.sh'
 
 # From where the files exported from Voyager are found?
-voyagerExportDir: ''
+voyagerExportDir: '/home/koha/MMT-Voyager/VoyagerExports'
 
 ####################################
 ### 2) Data transformation phase ###
@@ -31,7 +31,7 @@ workers: 3
 holdingsTransformationModule: HAMK
 
 # If the item doesn't have a price or a replacementprice, use this default.
-defaultReplacementPrice: 25
+defaultReplacementPrice: 0
 
 # ISIL-code for the migrated organization
 # Used primarily in the MARC record transformations.

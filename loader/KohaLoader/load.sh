@@ -116,7 +116,7 @@ function migrateBulkScripts {
 
     ./bulkPatronImport.pl --defaultAdmin "$DEFAULT_ADMIN" &> $WORKING_DIR/bulkPatronImport.log
     ./bulkPatronImport.pl --messagingPreferencesOnly &> $WORKING_DIR/bulkPatronImportMessagingDefaults.log & #This is forked on the background
-    ./bulkPatronImport.pl --uploadSSNKeysOnly &> $WORKING_DIR/bulkPatronImportSSNKeys.log & #This is forked on the background
+#    ./bulkPatronImport.pl --uploadSSNKeysOnly &> $WORKING_DIR/bulkPatronImportSSNKeys.log & #This is forked on the background
 
     ./bulkCheckoutImport.pl -file $DATA_SOURCE_DIR/Issue.migrateme \
         --inConversionTable $WORKING_DIR/itemnumberConversionTable \
@@ -157,9 +157,13 @@ function cleanPastMigrationWorkspace {
 }
 
 function fullReindex {
+    flush="$1"
+    if [ -z "$flush" ]; then
+        flush="-d"
+    fi
     #Make a full Zebra reindex.
     #Zebra is no longer used $KOHA_PATH/misc/migration_tools/rebuild_zebra.pl -b -a -r -x -v &> $WORKING_DIR/rebuild_zebra.log
-    $KOHA_PATH/misc/search_tools/rebuild_elastic_search.pl &> $WORKING_DIR/rebuild_elasticsearch.log
+    $KOHA_PATH/misc/search_tools/rebuild_elastic_search.pl $flush &> $WORKING_DIR/rebuild_elasticsearch.log
 }
 
 if [ "$OP" == "backup" ]
@@ -223,7 +227,7 @@ then
 
     migrateBulkScripts
 
-    fullReindex
+    fullReindex flush
 
     exit
 

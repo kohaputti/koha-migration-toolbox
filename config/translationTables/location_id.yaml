@@ -310,21 +310,21 @@
 +112: ref(14)
 15: branchLoc(main, 113) #P Kaunok. 2.krs
 +113: ref(15)
-16: branchLoc(kanavuori, 114, KONVERSIO) #P Vapaakappale Xa tabloid
+16: branchLoc(kanavuori, 114) #P Vapaakappale Xa tabloid
 +114: ref(16)
 17: branchLoc(main, 115) #P Lyhytlainakurssikirjat
 +115: ref(17)
-18: branchLoc(kanavuori, 117, KONVERSIO) #P Yleiskok Varastokirjat
+18: branchLoc(kanavuori, 117) #P Yleiskok Varastokirjat
 +117: ref(18)
-19: branchLoc(kanavuori, 128, KONVERSIO) #P Yleiskok. Käsik. var
+19: branchLoc(kanavuori, 128) #P Yleiskok. Käsik. var
 +128: ref(19)
-21: branchLoc(kanavuori, 119, KONVERSIO) #P Yleiskok Varastolehdet
+21: branchLoc(kanavuori, 119) #P Yleiskok Varastolehdet
 +119: ref(21)
-22: branchLoc(kanavuori, 120, KONVERSIO) #P Pihkalan kokoelma
+22: branchLoc(kanavuori, 120) #P Pihkalan kokoelma
 +120: ref(22)
-24: branchLoc(kanavuori, 121, KONVERSIO) #P Vapaakappalekokoelma
+24: branchLoc(kanavuori, 121) #P Vapaakappalekokoelma
 +121: ref(24)
-25: branchLoc(kanavuori, 122, KONVERSIO) #P Fennica piennumerus
+25: branchLoc(kanavuori, 122) #P Fennica piennumerus
 +122: ref(25)
 32: branchLoc(main, 190) #Internet-yhteys
 +190: ref(32)
@@ -350,17 +350,17 @@
 +7000: ref(145)
 200: branchLoc(main, 303) #P Lehdet Tupa
 +303: ref(200)
-211: branchLoc(kanavuori, 1210, KONVERSIO) #P Fennica numerus 2010-
+211: branchLoc(kanavuori, 1210) #P Fennica numerus 2010-
 +1210: ref(211)
-215: branchLoc(kanavuori, 1211, KONVERSIO) #P Varhaisfennica Arkholvi
+215: branchLoc(kanavuori, 1211) #P Varhaisfennica Arkholvi
 +1211: ref(215)
-216: branchLoc(kanavuori, 1020, KONVERSIO) #P Varhaiskirjallisuus
+216: branchLoc(kanavuori, 1020) #P Varhaiskirjallisuus
 +1020: ref(216)
 218: branchLoc(main, 192) #Ellibs
 +192: ref(218)
 222: branchLoc(main, 116) #P KäsikKurssik
 +116: ref(222)
-251: branchLoc(kanavuori, 1212, KONVERSIO) #P Arkkiveisut
+251: branchLoc(kanavuori, 1212) #P Arkkiveisut
 +1212: ref(251)
 254: branchLoc(main, 9999) #Säilytyspaikkahuone 302
 +9999: ref(254)
@@ -374,7 +374,7 @@
 +1219: ref(259)
 260: branchLoc(main, 1110) #e-kurssik
 +1110: ref(260)
-261: branchLoc(main, 1213) #P Arkistoholvi
+261: branchLoc(kanavuori, 1213) #P Arkistoholvi
 +1213: ref(261)
 262: branchLoc(aalto, 1214) #P Komiteanmietinnöt
 +1214: ref(262)
@@ -386,7 +386,7 @@
 +1216: ref(265)
 266: branchLoc(main, 193) #JY:n digitoidut aineistot
 +193: ref(266)
-269: branchLoc(kanavuori, 1220, KONVERSIO) #P Fennica lehdet 2017-
+269: branchLoc(kanavuori, 1220) #P Fennica lehdet 2017-
 +1220: ref(269)
 270: branchLoc(main, 9995) #Gradulokerohuone 302
 +9995: ref(270)
@@ -412,23 +412,23 @@
 +6000: ref(143)
 198: branchLoc(chydenius, 6002) # Chydenius-Inst. Kurssik
 +6002: ref(198)
-137: branchLoc(EI_KOHAAN, EI_KOHAAN) # Yliopiston kielikeskus, kirjat
+137: branchLoc(muut, 2900) # Yliopiston kielikeskus, kirjat
 +2900: ref(137)
-121: branchLoc(EI_KOHAAN, EI_KOHAAN) # Musiikin lts. LsKirja
+121: branchLoc(muut, 2200) # Musiikin lts. LsKirja
 +2200: ref(121)
-201: branchLoc(EI_KOHAAN, EI_KOHAAN) # Musiikin lts. LsMusiikki
+201: branchLoc(muut, 2202) # Musiikin lts. LsMusiikki
 +2202: ref(201)
-225: branchLoc(EI_KOHAAN, EI_KOHAAN) # Musiikin lts. LsPartituuri
+225: branchLoc(muut, 2205) # Musiikin lts. LsPartituuri
 +2205: ref(225)
-122: branchLoc(EI_KOHAAN, EI_KOHAAN) # Musiikin lts. Lainattava
+122: branchLoc(muut, 2205) # Musiikin lts. Lainattava
 +2201: ref(122)
-202: branchLoc(EI_KOHAAN, EI_KOHAAN) # Musiikin lts. LsNuotit
+202: branchLoc(muut, 2203) # Musiikin lts. LsNuotit
 +2203: ref(202)
-226: branchLoc(EI_KOHAAN, EI_KOHAAN) # Musiikin lts. LainaPartituurit
+226: branchLoc(muut, 2206) # Musiikin lts. LainaPartituurit
 +2206: ref(226)
-228: branchLoc(EI_KOHAAN, EI_KOHAAN) # Musiikin lts. LsOppikirja
+228: branchLoc(muut, 2208) # Musiikin lts. LsOppikirja
 +2208: ref(228)
-203: branchLoc(EI_KOHAAN, EI_KOHAAN) # Musiikin lts. Nuotit
+203: branchLoc(muut, 2204) # Musiikin lts. Nuotit
 +2204: ref(203)
 51: branchLoc(mattila, 601) # MK Lainattavat kirjat
 +601: ref(51)
@@ -460,38 +460,38 @@
 +810: ref(87)
 91: branchLoc(ylisto, 800) # YK FYS LsKirja
 +820: ref(91)
-214: branchLoc(ylisto, 903) # YK BIO LsKirja
+214: branchLoc(ylisto, 800) # YK BIO LsKirja
 +903: ref(214)
-193: branchLoc(main, 5558, KONVERSIO) # Testikokoelma3
+193: branchLoc(EI_KOHAAN, EI_KOHAAN) # Testikokoelma3
 +5558: ref(193)
-108: branchLoc(main, 1404, KONVERSIO) # Historia Fredrikson
+108: branchLoc(kanavuori, 1404) # Historia Fredrikson
 +1404: ref(108)
-42: branchLoc(main, 405, KONVERSIO) # Frankofonia Kanavuori
+42: branchLoc(kanavuori, 405) # Frankofonia Kanavuori
 +405: ref(42)
-199: branchLoc(kanavuori, 1820, KONVERSIO) # Hungarologia gradut
+199: branchLoc(kanavuori, 1820) # Hungarologia gradut
 +1820: ref(42)
-253: branchLoc(kanavuori, 1401, KONVERSIO) # TAIH Gradu
+253: branchLoc(kanavuori, 1401) # TAIH Gradu
 +1401: ref(253)
 90: branchLoc(ylisto, 851) # YK Lehdet
 +851: ref(90)
-124: branchLoc(EI_KOHAAN, EI_KOHAAN) # Kielikeskus lehdet
+124: branchLoc(muut, 2300) # Kielikeskus lehdet
 +2300: ref(124)
 213: branchLoc(ylisto, 821) # Ambiotica BIO Lainattavat
 +902: ref(213)
-219: branchLoc(main, 8000, KONVERSIO) # Poistettu kokoelmista
+219: branchLoc(main, 8000) # Poistettu kokoelmista
 +8000: ref(219)
-23: branchLoc(main, 129, KONVERSIO) # P Mikromuoto var
+23: branchLoc(main, 129) # P Mikromuoto var
 +129: ref(23)
-71: branchLoc(kanavuori, 615, KONVERSIO) # MK TIE Gradu
+71: branchLoc(kanavuori, 615) # MK TIE Gradu
 +615: ref(71)
-194: branchLoc(kanavuori, 614, KONVERSIO) # Tietotekn gradut
+194: branchLoc(kanavuori, 614) # Tietotekn gradut
 +614: ref(194)
-244: branchLoc(kanavuori, 504, KONVERSIO) # Liikunnan gradut 2010-
+244: branchLoc(kanavuori, 504) # Liikunnan gradut 2010-
 +504: ref(244)
-236: branchLoc(kanavuori, 1830, KONVERSIO) # Kirjallisuus gradut
+236: branchLoc(kanavuori, 1830) # Kirjallisuus gradut
 +1830: ref(236)
-89: branchLoc(kanavuori, 812, KONVERSIO) # YK Gradut
+89: branchLoc(kanavuori, 812) # YK Gradut
 +812: ref(89)
-196: branchLoc(kanavuori, 1300, KONVERSIO) # Rehtori-insituutti gradut
+196: branchLoc(kanavuori, 1300) # Rehtori-insituutti gradut
 +1300: ref(196)
 _DEFAULT_: branchLoc(main, KONVERSIO) #By default, print a warning and use defaults )

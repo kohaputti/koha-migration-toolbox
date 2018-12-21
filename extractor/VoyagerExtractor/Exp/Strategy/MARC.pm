@@ -22,6 +22,8 @@ use strict;
 
 #External modules
 use Carp;
+use MARC::File::MARCXML;
+use Encode;
 
 #Local modules
 use Exp::nvolk_marc21;
@@ -103,8 +105,55 @@ sub _output_record($$$) {
       $$record_ptr = Exp::Encoding::toUtf8($$record_ptr);
     }
     $$record_ptr = Exp::nvolk_marc21::nvolk_marc212oai_marc($$record_ptr);
+
+    $$record_ptr = _convert_component_record_linking_to_koha($$record_ptr);
+
     print $FH $$record_ptr, "\n";
   }
+}
+
+sub _convert_component_record_linking_to_koha($) {
+  my $record = shift();
+
+  return $record unless ($record =~ m/tag="773"/);
+
+  my $record_object = MARC::File::MARCXML->decode($record);
+  my @link_fields = $record_object->field('773');
+
+  foreach my $link_field ( @link_fields ) {
+      my @subfields = $link_field->subfield('w');
+      print STDERR "ERROR: multiple 773w not supported\n" if $#subfields > 0;
+      foreach my $subfield ( @subfields ) {
+          my $host_bib_id = _get_host_records_bib_id($subfield);
+          $link_field->update('w' => $host_bib_id);
+      }
+  }
+
+  if ($#link_fields >= 0) {
+      my $transformed_record = MARC::File::MARCXML->encode($record_object, { skipDeclaration => 1 });
+      $transformed_record =~ s/^(.*\n)//;
+      return encode('UTF-8', $transformed_record);
+  } else {
+      return $record;
+  }
+}
+
+sub _get_host_records_bib_id($) {
+  my $linking_id = shift();
+
+  my $dbh = Exp::DB::dbh();
+  my $sth = $dbh->prepare("SELECT bib_id FROM bib_index WHERE index_code = '035A' AND normal_heading = ?") || confess($dbh->errstr);
+  $sth->execute($linking_id) || confess($dbh->errstr);
+  my @row;
+  my $rows = 0;
+  my $host_bib_id = $linking_id;
+
+  while ( ( @row ) = $sth->fetchrow_array ) {
+      $rows++;
+      print STDERR "ERROR: no support for multiple parents\n" if $rows > 1;
+      $host_bib_id = $row[0];
+  }
+  return $host_bib_id;
 }
 
 return 1;

@@ -390,11 +390,11 @@
 +1220: ref(269)
 270: branchLoc(main, 9995) #Gradulokerohuone 302
 +9995: ref(270)
-27: branchLoc(EI_KOHAAN, EI_KOHAAN) # EU-kokoelma
+27: branchLoc(main, 124) # EU-kokoelma
 +124: ref(27)
-65: branchLoc(EI_KOHAAN, EI_KOHAAN) # 608 MAT G
+65: branchLoc(mattila, 608) # 608 MAT G
 608: ref(65)
-29: branchLoc(EI_KOHAAN, EI_KOHAAN) # 126 P LS-EU-kokoelma
+29: branchLoc(main, 126) # 126 P LS-EU-kokoelma
 +126: ref(29)
 28: branchLoc(EI_KOHAAN, EI_KOHAAN) # 125 EU-kokoelma. Varasto
 +125: ref(28)

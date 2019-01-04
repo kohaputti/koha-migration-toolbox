@@ -24,6 +24,8 @@ binmode( STDOUT, ":encoding(UTF-8)" );
 binmode( STDIN,  ":encoding(UTF-8)" );
 $|=1;
 
+use Data::Dumper;
+
 =head2 NAME
 
 Exp::Strategy::Precision::HAMK - Precisely export what is needed for HAMK. (Except MARC)
@@ -33,6 +35,9 @@ Exp::Strategy::Precision::HAMK - Precisely export what is needed for HAMK. (Exce
 Export all kinds of data from Voyager using the given precision SQL.
 
 =cut
+
+my $nowYear = 1900 + (localtime)[5];
+my $boundBibsStartId = 2000000;
 
 our %queries = (
   "00-bib_sub_frequency.csv" => {
@@ -63,6 +68,33 @@ our %queries = (
       "SELECT    mfhd_master.mfhd_id, mfhd_master.display_call_no                                 \n".
       "FROM      mfhd_master                                                                      \n".
       "",
+  },
+  "00c-bound_bibs-bib_to_parent.csv" => {
+    uniqueKey => -1,
+    columnNames => ['bib_item.bound_bib_id', 'bib_item.bound_parent_bib_id'], #Cannot parse the extractable column names or aliases for this SQL reasonably without using external SQL parsing libraries.
+    sql =>
+      "SELECT    bound_bib_ids,                                                                   \n".
+      "          (SELECT MAX(bib_id) FROM bib_master) + 10000 +                                   \n". # - Reserve bib_ids for the soon-to-be-created bound bib parent records.
+      "              ROW_NUMBER() OVER (ORDER BY bound_bib_ids                                    \n". #   Pick the latest used bib_id in the DB, add a safety buffer of 10000
+      "          ) as new_parent_bib_id                                                           \n". #   and add 1 for each deduplicated biblio group.
+      "FROM      (SELECT    LISTAGG(bib_item.bib_id, ',') WITHIN GROUP (ORDER BY bib_item.bib_id) \n". # - GROUP_CONCAT bib_ids that share the same item,
+      "                         as bound_bib_ids                                                  \n". #   this returns duplicate bib_id-group-rows for each bound item
+      "           FROM      bib_item                                                              \n".
+      "           LEFT JOIN ( SELECT   bib_item.item_id, COUNT(bib_item.bib_id) as bibs_count     \n". # - Select the count of linked biblios for this item
+      "                       FROM     bib_item                                                   \n".
+      "                       GROUP BY bib_item.item_id                                           \n".
+      "                     ) multi_bibious ON (multi_bibious.item_id = bib_item.item_id)         \n".
+      "           WHERE     multi_bibious.bibs_count > 1                                          \n". # - Only include items/bibs that are bound
+      "           GROUP BY  bib_item.item_id                                                      \n". # - First layer of flattening, concatenate all bib_id's this item links to
+      "          )                                                                                \n".
+      "GROUP BY bound_bib_ids                                                                     \n". # - Flatten duplicate bib_id-groups, now we have a group of bibs that need a parent bound record only once for all items they have
+      "",
+    postprocessor => sub {
+      my ($row) = @_;
+      my @bib_ids = split(',',$row->[0]);         # Split the bound_bib_ids-list
+      @bib_ids = map {[$_, $row->[1]]} @bib_ids;  # Make new rows from each bib_id and append the reserved bound parent record bib_id
+      return \@bib_ids;
+    },
   },
   "00-suppress_in_opac_map.csv" => {
     encoding => "iso-8859-1",
@@ -126,7 +158,7 @@ our %queries = (
       #
       # Pick last checkin location normally from the old issues table.
       #
-      "SELECT * FROM                                                                                 \n".
+      "SELECT item_id, max(last_borrow_date) as last_borrow_date FROM                                \n".
       "(                                                                                             \n".
       "SELECT    circ_trans_archive.item_id, max(circ_trans_archive.charge_date) as last_borrow_date \n".
       "FROM      circ_trans_archive                                                                  \n".
@@ -146,6 +178,7 @@ our %queries = (
       "WHERE     hold_recall_items.hold_recall_status = 2    \n". # 2 = 'Pending'. In Voyager-speak this is a hold which is waiting for pickup.
       "                                                      \n".
       ")                                                                                             \n".
+      "GROUP BY item_id                                                                              \n".
       "ORDER BY  item_id ASC                                                                         \n".
       "",
   },
@@ -376,24 +409,30 @@ our %queries = (
        ORDER BY  issues_received.component_id ASC, issues_received.location_id ASC",
   },
 
-  #No data in the Voyager subscription about into which branches it orders serials?
-  #Only received serials have location-information.
-  #Currently ignore predictions, because migrating predictions most certainly will be very slow/tedious vs benefits.
+  #Migrate only the serial numbers (predicted or received) up until the end of the current year. As the Koha's serials-module takes over then.
+  #TODO: Cannot know how many physical serial magazines are expected to be received for non-received serial numbers.
+  #      So serial issues that need to be received after going live, need to be added as supplements as there is only one item/magazine in Koha subscription ready to be received.
   "21-ser_issues.csv" => {
-    uniqueKey => [0, 1],
+    #uniqueKey => [0, 1, 3], #as item_id can be null or 0, this causes a lot of false positive warnings, so just disable uniqueness checks.
+    uniqueKey => -1,
     sql =>
       "SELECT    serial_issues.issue_id, serial_issues.component_id,
-                 line_item.bib_id,
+                 line_item.bib_id, issues_received.item_id,
                  serial_issues.enumchron, serial_issues.lvl1, serial_issues.lvl2, serial_issues.lvl3,
                  serial_issues.lvl4, serial_issues.lvl5, serial_issues.lvl6, serial_issues.alt_lvl1,
                  serial_issues.alt_lvl2, serial_issues.chron1, serial_issues.chron2, serial_issues.chron3,
                  serial_issues.chron4, serial_issues.alt_chron,
-                 serial_issues.expected_date, serial_issues.receipt_date, serial_issues.received
+                 serial_issues.expected_date, serial_issues.receipt_date, serial_issues.received,
+
+                 issues_received.location_id as received_location_id, issues_received.receipt_date as received_receipt_date,
+                 issues_received.opac_suppressed, issues_received.note as received_note, issues_received.collapsed
        FROM      serial_issues
        LEFT JOIN component       ON (component.component_id = serial_issues.component_id)
        LEFT JOIN subscription    ON (subscription.subscription_id = component.subscription_id)
        LEFT JOIN line_item       ON (subscription.line_item_id = line_item.line_item_id)
-       ORDER BY  serial_issues.issue_id ASC",
+       LEFT JOIN issues_received ON (issues_received.issue_id = serial_issues.issue_id AND issues_received.component_id = serial_issues.component_id)
+       WHERE     EXTRACT(YEAR FROM serial_issues.expected_date) <= $nowYear
+       ORDER BY  serial_issues.component_id ASC, serial_issues.issue_id ASC",
   },
 
   #Extract MFHD only for serials, so the location and subscription history can be extracted.

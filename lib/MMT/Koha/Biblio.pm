@@ -101,8 +101,8 @@ sub linkBoundRecord($s, $xmlPtr, $b) {
     $log->warn($s->logId()." already has Field '773\$w'with value '$f773w'. This is overwritten with '$boundParent'. Sorry."); #TODO: Try to figure out a good solution if we encounter bound bibs which are also component parts.
   }
   MMT::MARC::Regex->datafield($xmlPtr, '773', 'w', $boundParent); #Overwrites any existing field 773
-  MMT::MARC::Regex->subfield($xmlPtr, '773', 'i', 'Bound biblio');
-  MMT::MARC::Regex->subfield($xmlPtr, '773', 't', 'Bound biblio parent record');
+  MMT::MARC::Regex->subfield($xmlPtr, '773', 'i', 'Yhteissidos');
+  MMT::MARC::Regex->subfield($xmlPtr, '773', 't', 'Yhteissidoksen emotietue');
 }
 
 =head2 translateLinks

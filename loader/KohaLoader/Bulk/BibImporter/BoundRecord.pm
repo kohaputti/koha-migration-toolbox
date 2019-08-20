@@ -31,7 +31,7 @@ use Bulk::BibImporter;
 sub migrate($s, $record, $recordXmlPtr) {
   #Check if this is marked to be a bound biblio by the migration pipeline
   my $f773i = $record->subfield('773', 'i');
-  unless ($f773i && $f773i eq 'Bound biblio') {
+  unless ($f773i && $f773i eq 'Yhteissidos') {
     return;
   }
 
@@ -49,12 +49,23 @@ sub _createBoundBibParentRecord($s, $boundBibRecord, $parentBiblionumber) {
   #Prepare hex id
   my @set = ('0' ..'9', 'A' .. 'F');
   my $hexId = join '' => map $set[rand @set], 1 .. 8;
-  my $title = "Bound biblio parent record $hexId";
+  my $title = "Yhteissidos $hexId";
+  my $titleb = "Sammanbunden / Samlingsband $hexId = Bound volume $hexId" . ".";
+  my $field500 = "Yhteensidottu nide sisältää useita julkaisuja : Sammanbunden/Samlingsbandet innehåller flera publikationen : Bound volume contains multiple items.";
 
   $parent->field('001')->update($parentBiblionumber); #Bound bibs can link to this parent now #TODO: Needs to be biblionumberConversionTable:able
-  $parent->field('245') ?
-      $parent->field('245')->update(a => $title) : #This is clearly distinguished as a temporary placeholder that needs to be manually fixed.
+  if ($parent->field('245')) {
+      $parent->field('245')->update(a => $title);
+  } else {
       $parent->insert_fields_ordered(MARC::Field->new('245', 'a' => $title));
+      $parent->insert_fields_ordered(MARC::Field->new('245', 'b' => $titleb));
+  }
+
+  if ($parent->field('500')) {
+      $parent->field('500')->update(a => $field500);
+  } else {
+      $parent->insert_fields_ordered(MARC::Field->new('500', 'a' => $field500));
+  }
 
   my @link_fields = $parent->field('773');
   $parent->delete_fields(@link_fields);

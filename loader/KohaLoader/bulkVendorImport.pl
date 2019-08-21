@@ -13,6 +13,7 @@ use Log::Log4perl qw(:easy);
 use C4::Context;
 
 my ($vendorFile, $vendoridConversionTableFile);
+my $VendoridConversionTable;
 our $verbosity = 3;
 
 GetOptions(
@@ -37,7 +38,7 @@ DESCRIPTION
           The perl-serialized HASH of Vendors.
 
     --vendorConversionTable filePath
-          Defaults to $vendorConversionTableFile
+          Defaults to $vendoridConversionTableFile
           Where to write the converted vendor IDs.
 
     -v level

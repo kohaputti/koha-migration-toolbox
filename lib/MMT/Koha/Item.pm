@@ -286,7 +286,9 @@ Executes only if this Item's biblio is a bound record and has a bound parent rec
 
 sub doBoundItem($s, $o, $b) {
   my $boundParent = $b->{BoundBibParent}->get($o->{bib_id});
+  my $boundItem = $b->{BoundBibItem}->get($o->{item_id});
   return unless $boundParent;
+  return unless $boundItem;
 
   $boundParent = $boundParent->[0]->{bound_parent_bib_id};
   die($s->logId()." - Bound parent biblionumber '$boundParent' is not a valid digit?") unless ($boundParent =~ /^\d+$/);

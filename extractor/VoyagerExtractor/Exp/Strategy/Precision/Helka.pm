@@ -226,6 +226,21 @@ our %queries = (
       return \@bib_ids;
     },
   },
+
+  "00d-bound_bibs-item.csv" => {
+    uniqueKey => 0,
+    columnNames => [qw( bib_item.item_id )],
+    sql =>
+      "select DISTINCT(bib_item.item_id) from bib_item GROUP BY item_id HAVING COUNT(bib_id) > 1",
+  },
+
+  "00e-bound_bibs-mfhd.csv" => {
+    uniqueKey => 0,
+    columnNames => [qw( bib_mfhd.mfhd_id )],
+    sql =>
+      "select DISTINCT(bib_mfhd.mfhd_id) from bib_mfhd GROUP BY mfhd_id HAVING COUNT(bib_id) > 1",
+  },
+
   "00-suppress_in_opac_map.csv" => {
     encoding => "iso-8859-1",
     uniqueKey => -1,

@@ -123,7 +123,9 @@ It is much easier to just spam the DB during loading to check if the bound paren
 sub linkBoundRecord($s, $xmlPtr, $b) {
   my $biblionumber = MMT::MARC::Regex->controlfield($xmlPtr, '004');
   my $boundParent = $b->{BoundBibParent}->get($biblionumber);
+  my $boundMFHD = $b->{BoundBibMFHD}->get($s->{holding_id});
   return unless $boundParent;
+  return unless $boundMFHD;
 
   $boundParent = $boundParent->[0]->{bound_parent_bib_id};
   die($s->logId()." - Bound parent biblionumber '$boundParent' is not a valid digit?") unless ($boundParent =~ /^\d+$/);

@@ -84,6 +84,7 @@ MMT_HOME: ".($ENV{MMT_HOME} || '')."
           {name => 'MFHDMaster',        file => '00-mfhd_master.csv',          keys => ['mfhd_id']},
           {name => 'SuppressInOpacMap', file => '00-suppress_in_opac_map.csv', keys => ['bib_id', 'mfhd_id', 'location_id']},
           {name => 'BoundBibParent',    file => '00c-bound_bibs-bib_to_parent.csv', keys => ['bound_bib_id']},
+          {name => 'BoundBibMFHD',      file => '00e-bound_bibs-mfhd.csv',  keys => ['mfhd_id']},
         ],
         translationTables => [
           {name => 'LocationId'},
@@ -109,6 +110,7 @@ MMT_HOME: ".($ENV{MMT_HOME} || '')."
           {name => "LastBorrowDate", file => '02-items_last_borrow_date.csv', keys => ['item_id']},
           {name => 'BibText',        file => '00-bib_text.csv',               keys => ['bib_id']},
           {name => 'BoundBibParent', file => '00c-bound_bibs-bib_to_parent.csv', keys => ['bound_bib_id']},
+          {name => 'BoundBibItem',   file => '00d-bound_bibs-item.csv',  keys => ['item_id']},
         ],
         translationTables => [
           {name => 'LocationId'},

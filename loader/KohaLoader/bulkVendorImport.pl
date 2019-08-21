@@ -61,7 +61,7 @@ my $vendor_insert_sth = $dbh->prepare("INSERT INTO aqbooksellers
 sub migrate_vendor($s) {
     $vendor_insert_sth->execute($s->{name}, $s->{currency}, $s->{accoutnumber}) or die "INSERT:ing Vendor failed: ".$vendor_insert_sth->errstr();
 
-    my $newBookSellerID = $dbh->last_insert_id(undef, undef, 'aqbooksellers', 'id') or die("Fetching last insert if failed: ".$dbh->errstr());
+    my $newBookSellerId = $dbh->last_insert_id(undef, undef, 'aqbooksellers', 'id') or die("Fetching last insert if failed: ".$dbh->errstr());
     $VendoridConversionTable->writeRow($s->{id}, $newBookSellerId);
 }
 

@@ -64,7 +64,7 @@ sub _createBoundBibParentRecord($s, $boundBibRecord, $parentBiblionumber) {
   if ($parent->field('500')) {
       $parent->field('500')->update(a => $field500);
   } else {
-      $parent->insert_fields_ordered(MARC::Field->new('500', 'a' => $field500));
+      $parent->insert_fields_ordered(MARC::Field->new('500', '', '', 'a' => $field500));
   }
 
   my @link_fields = $parent->field('773');

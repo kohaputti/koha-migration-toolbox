@@ -56,6 +56,7 @@ sub _createBoundBibParentRecord($s, $boundBibRecord, $parentBiblionumber) {
   $parent->field('001')->update($parentBiblionumber); #Bound bibs can link to this parent now #TODO: Needs to be biblionumberConversionTable:able
   if ($parent->field('245')) {
       $parent->field('245')->update(a => $title);
+      $parent->field('245')->update(b => $titleb);
   } else {
       $parent->insert_fields_ordered(MARC::Field->new('245', 'a' => $title));
       $parent->insert_fields_ordered(MARC::Field->new('245', 'b' => $titleb));

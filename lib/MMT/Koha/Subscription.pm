@@ -32,7 +32,7 @@ sub build($self, $o, $b) {
 
   #$self->setLibrarian           ($o, $b); #| varchar(100) | YES  |     |         |                |
   $self->setStartdate            ($o, $b); #| date         | YES  |     | NULL    |                |
-  #$self->setAqbooksellerid      ($o, $b); #| int(11)      | YES  |     | 0       |                |
+  $self->setAqbooksellerid       ($o, $b); #| int(11)      | YES  |     | 0       |                |
   #$self->setCost                ($o, $b); #| int(11)      | YES  |     | 0       |                |
   #$self->setAqbudgetid          ($o, $b); #| int(11)      | YES  |     | 0       |                |
   #$self->setWeeklength          ($o, $b); #| int(11)      | YES  |     | 0       |                |
@@ -88,6 +88,11 @@ sub setStartdate($s, $o, $b) {
     $s->{startdate} = '2000-01-01'; #Koha must have a koha.subscription.startdate
   }
 }
+
+sub setAqbooksellerid($s, $o, $b) {
+  $s->{aqbooksellerid} = $o->{vendor_id};
+}
+
 sub setStatus($s, $o, $b) {
   $s->{status} = 1;
 }

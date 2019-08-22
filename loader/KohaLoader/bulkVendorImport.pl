@@ -12,13 +12,12 @@ use Log::Log4perl qw(:easy);
 
 use C4::Context;
 
-my ($vendorFile, $vendoridConversionTableFile);
-my $VendoridConversionTable;
+my ($vendorFile);
+
 our $verbosity = 3;
 
 GetOptions(
     'vendorFile:s'       => \$vendorFile,
-    'vendorConversionTable:s'      => \$vendoridConversionTableFile,
     'v|verbosity:i'            => \$verbosity,
 );
 
@@ -28,18 +27,13 @@ NAME
   $0 - Import Vendors en masse
 
 SYNOPSIS
-  perl bulkVendorImport.pl --vendorFile /home/koha/pielinen/vendors.migrateme \
-    --vendorConversionTable $vendoridConversionTableFile \
+  perl bulkVendorImport.pl --vendorFile /home/koha/pielinen/vendors.migrateme
 
 
 DESCRIPTION
 
     --vendorFile filepath
           The perl-serialized HASH of Vendors.
-
-    --vendorConversionTable filePath
-          Defaults to $vendoridConversionTableFile
-          Where to write the converted vendor IDs.
 
     -v level
           Verbose output to the STDOUT,
@@ -62,13 +56,8 @@ sub migrate_vendor($s) {
     $vendor_insert_sth->execute($s->{name}, $s->{currency}, $s->{accoutnumber}) or die "INSERT:ing Vendor failed: ".$vendor_insert_sth->errstr();
 
     my $newBookSellerId = $dbh->last_insert_id(undef, undef, 'aqbooksellers', 'id') or die("Fetching last insert if failed: ".$dbh->errstr());
-    $VendoridConversionTable->writeRow($s->{id}, $newBookSellerId);
 }
 
-
-
-INFO "Opening VendoridConversionTable '$vendoridConversionTableFile' for writing";
-$VendoridConversionTable = Bulk::ConversionTable::VendoridConversionTable->new($vendoridConversionTableFile, 'write');
 
 my $fh = Bulk::Util::openFile($vendorFile);
 my $i = 0;
@@ -80,4 +69,3 @@ while (<$fh>) {
     migrate_vendor($vendor);
 }
 $fh->close();
-$VendoridConversionTable->close();

@@ -590,16 +590,17 @@ our %queries = (
       "SELECT    component.component_id, component_pattern.end_date,
                  subscription.subscription_id, line_item.bib_id,
                  subscription.start_date,
-                 component.create_items
+                 component.create_items, purchase_order.vendor_id
        FROM      component
        LEFT JOIN subscription      ON (component.subscription_id  = subscription.subscription_id)
        LEFT JOIN line_item         ON (subscription.line_item_id  = line_item.line_item_id)
+       LEFT JOIN purchase_order    ON (line_item.po_id = purchase_order.po_id)
        LEFT JOIN component_pattern ON (component.component_id     = component_pattern.component_id)
        LEFT JOIN serial_issues     ON (serial_issues.component_id = component.component_id)
        LEFT JOIN issues_received   ON (issues_received.issue_id   = serial_issues.issue_id)
        GROUP BY  subscription.subscription_id, line_item.bib_id, component.component_id,
                  subscription.start_date, component_pattern.end_date,
-                 component.create_items
+                 component.create_items, purchase_order.vendor_id
        ORDER BY  component.component_id ASC",
   },
   "20a-subscription_locations.csv" => {

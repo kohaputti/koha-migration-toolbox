@@ -259,7 +259,7 @@ MMT_HOME: ".($ENV{MMT_HOME} || '')."
         type => 'Vendor',
         inputFile => '30-vendors.csv',
         repositories => [
-	    {name => "accounts", file => '31-vendor_accounts.csv', keys => ['vendor_id']},
+	    {name => "accounts", file => '30-vendor_accounts.csv', keys => ['vendor_id']},
         ],
       });
       $builder->build();

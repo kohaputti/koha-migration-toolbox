@@ -53,7 +53,7 @@ my $vendor_insert_sth = $dbh->prepare("INSERT INTO aqbooksellers
                                     VALUES (?,?,?,?,?,?,?)");
 
 sub migrate_vendor($s) {
-    $vendor_insert_sth->execute($s->{id}, $s->{name}, $s->{currency}, $s->{accoutnumber}, 1, $s->{currency}, $s->{currency}) or die "INSERT:ing Vendor failed: ".$vendor_insert_sth->errstr();
+    $vendor_insert_sth->execute($s->{id}, $s->{name}, $s->{currency}, $s->{accountnumber}, 1, $s->{currency}, $s->{currency}) or die "INSERT:ing Vendor failed: ".$vendor_insert_sth->errstr();
 
     my $newBookSellerId = $dbh->last_insert_id(undef, undef, 'aqbooksellers', 'id') or die("Fetching last insert if failed: ".$dbh->errstr());
 }

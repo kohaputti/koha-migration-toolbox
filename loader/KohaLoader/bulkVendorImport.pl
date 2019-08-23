@@ -50,7 +50,7 @@ unless ($vendorFile) {
 my $dbh = C4::Context->dbh();
 my $vendor_insert_sth = $dbh->prepare("INSERT INTO aqbooksellers
                                     (id, name, currency, accountnumber)
-                                    VALUES (?,?,?)");
+                                    VALUES (?,?,?,?)");
 
 sub migrate_vendor($s) {
     $vendor_insert_sth->execute($s->{id}, $s->{name}, $s->{currency}, $s->{accoutnumber}) or die "INSERT:ing Vendor failed: ".$vendor_insert_sth->errstr();

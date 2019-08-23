@@ -28,6 +28,7 @@ sub build($self, $o, $b) {
   $self->set(vendor_name => 'name', $o, $b);
   $self->setAccountnumber($o, $b);
   $self->setNotes($o, $b);
+  $self->setAddresses($o, $b);
 
 }
 
@@ -64,5 +65,24 @@ sub setNotes($s, $o, $b) {
 
     $s->{notes} = $final_notes;
 }
+
+sub setAddresses($s, $o, $b) {
+    my $original_addresses = $b->{addresses}->get($o->{vendor_id});
+    my @phones;
+    my @faxes;
+    foreach my $address (@$original_addresses) {
+	$s->{address1} = "$address->{address_line1}, $address->{address_line2}, $address->{address_line3}, $address->{address_line4}, $address->{address_line5}";
+	$s->{address1} = "$address->{zip_postal} $address->{city}";
+
+        my $original_phones = $b->{phones}->get($address->{address_id});
+        foreach my $phone (@$original_phones) {
+	    push @phones, $phone->{phone_number};
+	}
+    }
+
+    $s->{phones} = join ' TAI ', @phones;
+
+}
+
 
 return 1;

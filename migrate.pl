@@ -261,6 +261,8 @@ MMT_HOME: ".($ENV{MMT_HOME} || '')."
         repositories => [
 	    {name => "accounts", file => '31-vendor_accounts.csv', keys => ['vendor_id']},
 	    {name => "notes", file => '34-vendor_notes.csv', keys => ['vendor_id']},
+	    {name => "phones", file => '32-vendor_phones.csv', keys => ['address_id']},
+	    {name => "addresses", file => '33-vendor_addresses.csv', keys => ['vendor_id']},
         ],
       });
       $builder->build();

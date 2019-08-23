@@ -72,8 +72,10 @@ sub setAddresses($s, $o, $b) {
     my @faxes;
     foreach my $address (@$original_addresses) {
 	my @addresses1 = ($address->{address_line1}, $address->{address_line2}, $address->{address_line3}, $address->{address_line4}, $address->{address_line5});
+	@addresses1 = grep { $_ ne '' } @addresses1;
 	$s->{address1} = join ', ', @addresses1;
 	my @addresses2 = ($address->{zip_postal}, $address->{city});
+	@addresses2 = grep { $_ ne '' } @addresses2;
 	$s->{address2} = join ' ', @addresses2;
 
         my $original_phones = $b->{phones}->get($address->{address_id});

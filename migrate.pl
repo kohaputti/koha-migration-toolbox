@@ -260,6 +260,7 @@ MMT_HOME: ".($ENV{MMT_HOME} || '')."
         inputFile => '30-vendors.csv',
         repositories => [
 	    {name => "accounts", file => '31-vendor_accounts.csv', keys => ['vendor_id']},
+	    {name => "notes", file => '34-vendor_notes.csv', keys => ['vendor_id']},
         ],
       });
       $builder->build();

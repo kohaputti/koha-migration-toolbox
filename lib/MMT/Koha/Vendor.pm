@@ -53,4 +53,14 @@ sub setAccountnumber($s, $o, $b) {
     }
 }
 
+sub setNotes($s, $o, $b) {
+    my $original_notes = $b->{notes}->get($o->{vendor_id});
+    my $final_notes;
+    foreach my $note (@$original_notes) {
+	$final_notes .= "$note->{note}\n\n";
+    }
+
+    $s->{notes} = $final_notes;
+}
+
 return 1;

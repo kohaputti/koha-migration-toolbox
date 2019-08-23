@@ -27,6 +27,8 @@ sub build($self, $o, $b) {
   $self->set(default_currency => 'currency', $o, $b);
   $self->set(vendor_name => 'name', $o, $b);
   $self->setAccountnumber($o, $b);
+  $self->setNotes($o, $b);
+
 }
 
 sub id {

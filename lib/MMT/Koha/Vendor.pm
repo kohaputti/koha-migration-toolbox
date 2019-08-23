@@ -38,7 +38,7 @@ sub logId($s) {
 }
 
 sub setCurrency($s, $o, $b) {
-    $s->{currency} = $o->{default_currency} || undef;
+    $s->{currency} = $o->{default_currency} || 'EUR';
 }
 
 sub setName($s, $o, $b) {

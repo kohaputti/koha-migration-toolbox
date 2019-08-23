@@ -86,13 +86,13 @@ my $dbh=C4::Context->dbh();
 
 my $sub_insert_sth = $dbh->prepare("INSERT INTO subscription
                                     (librarian,     branchcode, biblionumber,   notes, status,
-                                     internalnotes, location,   startdate)
-                                    VALUES (?,?,?,?,?,?,?,?)");
+                                     internalnotes, location,   startdate, aqbooksellerid)
+                                    VALUES (?,?,?,?,?,?,?,?,?)");
 my $sub_set_serial_sth = $dbh->prepare("UPDATE biblio
                                         SET serial=1
                                         WHERE biblionumber=?");
 sub migrate_subscription($s) {
-    $sub_insert_sth->execute('0', $s->{branchcode}, $s->{biblionumber}, $s->{notes}, $s->{status}, $s->{internalnotes}, $s->{location}, $s->{startdate})
+    $sub_insert_sth->execute('0', $s->{branchcode}, $s->{biblionumber}, $s->{notes}, $s->{status}, $s->{internalnotes}, $s->{location}, $s->{startdate}, $s->{aqbooksellerid})
       or die "INSERT:ing Subscription failed: ".$sub_insert_sth->errstr();
 
     my $newSubscriptionid = $dbh->last_insert_id(undef, undef, 'subscription', 'subscriptionid') or die("Fetching last insert if failed: ".$dbh->errstr());

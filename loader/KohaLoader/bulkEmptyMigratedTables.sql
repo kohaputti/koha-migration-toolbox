@@ -15,7 +15,7 @@ TRUNCATE api_keys;
 TRUNCATE aqbasket;
 TRUNCATE aqbasketgroups;
 TRUNCATE aqbasketusers;
---TRUNCATE aqbooksellers;
+TRUNCATE aqbooksellers;
 --TRUNCATE aqbudgetborrowers;
 --TRUNCATE aqbudgetperiods;
 --TRUNCATE aqbudgets;

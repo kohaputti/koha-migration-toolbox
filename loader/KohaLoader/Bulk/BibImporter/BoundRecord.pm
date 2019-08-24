@@ -37,6 +37,9 @@ sub migrate($s, $record, $recordXmlPtr) {
 
   #Check if some worker thread has already created the bound bib parent record.
   my $f773w = $record->subfield('773', 'w') or die("Record has 773\$i and looks like a bound biblio, but doesn't have 773\$w which points to the reserved bound bib parent record biblionumber. Erroneus record dump: $$recordXmlPtr\n");
+  $f773w =~ /^\((?:FI-NLD|FI-H|FI-NL)\)(\d+)$/s;
+  $f773w = $1;
+
   unless (C4::Biblio::GetBiblio($f773w)) {
     return (_createBoundBibParentRecord($s, $record, $f773w), $f773w);
   }

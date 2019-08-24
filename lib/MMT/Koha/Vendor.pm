@@ -77,6 +77,7 @@ sub setAddresses($s, $o, $b) {
 	my @addresses2 = ($address->{zip_postal}, $address->{city});
 	@addresses2 = grep { $_ ne '' } @addresses2;
 	$s->{address2} = join ' ', @addresses2;
+	$s->{address3} = $address->{country};
 
         my $original_phones = $b->{phones}->get($address->{address_id});
         foreach my $phone (@$original_phones) {

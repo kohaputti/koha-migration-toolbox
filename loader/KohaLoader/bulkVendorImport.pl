@@ -49,11 +49,11 @@ unless ($vendorFile) {
 
 my $dbh = C4::Context->dbh();
 my $vendor_insert_sth = $dbh->prepare("INSERT INTO aqbooksellers
-                                    (id, name, currency, accountnumber, active, listprice, invoiceprice, notes, address1, address2, phone)
-                                    VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+                                    (id, name, currency, accountnumber, active, listprice, invoiceprice, notes, address1, address2, phone, address3)
+                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 
 sub migrate_vendor($s) {
-    $vendor_insert_sth->execute($s->{id}, $s->{name}, $s->{currency}, $s->{accountnumber}, 1, $s->{currency}, $s->{currency}, $s->{notes}, $s->{address1}, $s->{address2}, $s->{phones}) or die "INSERT:ing Vendor failed: ".$vendor_insert_sth->errstr();
+    $vendor_insert_sth->execute($s->{id}, $s->{name}, $s->{currency}, $s->{accountnumber}, 1, $s->{currency}, $s->{currency}, $s->{notes}, $s->{address1}, $s->{address2}, $s->{phones}, $s->{country}) or die "INSERT:ing Vendor failed: ".$vendor_insert_sth->errstr();
 
     my $newBookSellerId = $dbh->last_insert_id(undef, undef, 'aqbooksellers', 'id') or die("Fetching last insert if failed: ".$dbh->errstr());
 }
